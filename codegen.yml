@@ -1,0 +1,9 @@
+overwrite: true
+schema: "src/api/schema.graphql"  # Cesta k tvému GraphQL schématu
+documents: "src/queries/**/*.graphql"  # Cesta k tvým GraphQL dokumentům
+generates:
+  src/generated/graphql.tsx:  # Vygenerovaný soubor s typy a hooks
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
