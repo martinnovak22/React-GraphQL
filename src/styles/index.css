@@ -26,15 +26,15 @@ body {
 }
 
 .image {
-  @apply w-64 h-64 object-cover rounded-lg mb-4 mr-5;
+  @apply h-full object-cover rounded-lg mb-4 mr-5;
 }
 
 .title {
-  @apply text-xl font-semibold mb-2;
+  @apply text-lg text-green-600 font-bold mb-1.5;
 }
 
 .text {
-  @apply mb-2;
+  @apply mb-1 text-sm;
 }
 
 .error {
@@ -43,4 +43,31 @@ body {
 
 .loading {
   @apply text-center text-lg font-semibold;
+}
+
+ul li a {
+  color: #ffffff;
+}
+
+ul li a:hover {
+  @apply text-green-500;
+}
+
+.active-link {
+  @apply text-green-600 font-semibold;
+}
+
+.number-input {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+.number-input::-webkit-outer-spin-button,
+.number-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.number-input {
+  -moz-appearance: textfield;
 }

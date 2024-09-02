@@ -1,11 +1,9 @@
-# src/api/schema.graphql
-
 type Query {
-    characters(page: Int): CharactersResponse
+    characters(page: Int, filter: CharacterFilter): CharactersResponse
     character(id: ID!): Character
-    episodes(page: Int): EpisodesResponse
+    episodes(page: Int, filter: EpisodeFilter): EpisodesResponse
     episode(id: ID!): Episode
-    locations(page: Int): LocationsResponse
+    locations(page: Int, filter: LocationFilter): LocationsResponse
     location(id: ID!): Location
 }
 
@@ -34,6 +32,8 @@ type Info {
 type Character {
     id: ID!
     name: String!
+    age: Int
+    email: String
     status: String
     species: String
     type: String
@@ -41,6 +41,7 @@ type Character {
     origin: Location
     location: Location
     image: String
+    episode: [Episode]
 }
 
 type Episode {
@@ -57,4 +58,57 @@ type Location {
     type: String
     dimension: String
     residents: [Character]
+}
+
+input CharacterFilter {
+    name: String
+    status: String
+    species: String
+    type: String
+    gender: String
+}
+
+input EpisodeFilter {
+    name: String
+    episode: String
+}
+
+input LocationFilter {
+    name: String
+    type: String
+    dimension: String
+}
+
+type Stats {
+    totalCharacters: Int
+    totalEpisodes: Int
+    totalLocations: Int
+}
+
+type SearchResult {
+    characters: [Character]
+    episodes: [Episode]
+    locations: [Location]
+}
+
+#Mutation:
+type Mutation {
+    createCharacter(input: CharacterInput!): Character
+    updateCharacter(id: ID!, input: CharacterInput!): Character
+    deleteCharacter(id: ID!): Boolean
+}
+
+input CharacterInput {
+    name: String!
+    species: String!
+    status: String!
+    gender: String!
+}
+
+type Character {
+    id: ID!
+    name: String!
+    species: String!
+    status: String!
+    gender: String!
 }

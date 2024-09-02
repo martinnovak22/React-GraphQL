@@ -1,0 +1,25 @@
+# mutations.graphql
+
+mutation CreateCharacter($input: CharacterInput!) {
+    createCharacter(input: $input) {
+        id
+        name
+        species
+        status
+        gender
+    }
+}
+
+mutation UpdateCharacter($id: ID!, $input: CharacterInput!) {
+    updateCharacter(id: $id, input: $input) {
+        id
+        name
+        species
+        status
+        gender
+    }
+}
+
+mutation DeleteCharacter($id: ID!) {
+    deleteCharacter(id: $id)
+}

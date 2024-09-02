@@ -9,6 +9,7 @@ import {
   ApolloProvider,
   gql,
 } from "@apollo/client";
+import { BrowserRouter } from "react-router-dom";
 
 // Apollo Client nastavení
 const client = new ApolloClient({
@@ -18,8 +19,10 @@ const client = new ApolloClient({
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <BrowserRouter>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
